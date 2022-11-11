@@ -1,0 +1,26 @@
+name: flippy-dev
+channels:
+        - conda-forge
+dependencies:
+        - python=3.9
+        - django=4.1
+        - selenium
+        - geckodriver
+        - gunicorn
+        - pip
+        - pip:
+                - pymupdf
+                - xvfbwrapper
+                - webdriver-manager
+                - django-npm
+                - django_heroku
+                - coverage
+                - dj_database_url
+                - psycopg2
+                - whitenoise
+                - pylint
+                - flake8
+                - autopep8
+                - python_decouple
+                - twilio
+                - packaging
