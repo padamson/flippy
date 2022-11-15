@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load index %} 
+
+{% block heading %}
+<section class="text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light py-lg-2">All Flashcards</h1>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block deck %}
+<section class="container">
+
+    {% for card in object_list %}
+    {% ifchanged card.box %} 
+    <h3>🗃 {{ card.box | ordinal }} Box</h3>
+    <div class="accordion" id="accordian_{{card.box}}">
+    {% endifchanged %} 
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="header_{{forloop.counter}}">
+                <button name="box_{{card.box}}_card" class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse_{{forloop.counter}}" aria-expanded="true" aria-controls="collapse_{{forloop.counter}}">
+                    {{ card }}
+            </h2>
+            <div id="collapse_{{forloop.counter}}" class="accordion-collapse collapse" aria-labelledby="header_{{forloop.counter}}"
+                data-bs-parent="#all_card_accordian">
+                <div class="accordion-body">
+                    {{ card.answer }}
+                </div>
+            </div>
+        </div>
+    {% if forloop.last %}
+    </div>
+    {% else %} 
+        {% with next_card=object_list|index:forloop.counter %}
+            {% if next_card.box != card.box %} 
+    </div>  
+    <br>
+            {% endif %}
+        {% endwith %}
+    {% endif %} 
+    {% endfor %}
+
+</section>
+{% endblock deck %}

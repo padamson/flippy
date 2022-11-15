@@ -1,0 +1,23 @@
+{
+  "name": "flippy",
+  "version": "1.0.0",
+  "description": "Flashcard app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/padamson/flippy.git"
+  },
+  "author": "Paul Adamson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/padamson/flippy/issues"
+  },
+  "homepage": "https://github.com/padamson/flippy#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "qunit": "^2.19.3"
+  }
+}
